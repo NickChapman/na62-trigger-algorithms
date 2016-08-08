@@ -1948,9 +1948,13 @@ uint_fast8_t StrawAlgo::processStrawTrigger(uint l0MaskID, DecoderHandler& decod
 }
 
 uint_fast8_t StrawAlgo::abortProcessing(L1InfoToStorage* l1Info) {
+	/*
+	 * Sets the appropriate flags for when event processing has to terminate early
+	 *
+	 * @return Flag=3 to specify that L1 Kpnn and exotics triggers were fulfilled
+	 */
 	l1Info->setL1StrawOverflow();
 	l1Info->setL1StrawProcessed();
-	// 3 for event fulfilled both L1 straw triggers for Kpnn and exotics data streams
 	return 3;
 }
 
